@@ -29,6 +29,8 @@ const app = Vue.createApp({
         },
       ],
       cart: [],
+      showModal: false,
+      logo: "images/logo.svg",
     };
   },
 
@@ -44,6 +46,12 @@ const app = Vue.createApp({
       );
 
       this.cart.splice(variantPosition, 1);
+    },
+    toggleModal() {
+      this.showModal = !this.showModal;
+    },
+    clearCart() {
+      this.cart = [];
     },
   },
   computed: {

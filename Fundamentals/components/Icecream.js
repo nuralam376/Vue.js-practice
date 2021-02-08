@@ -1,0 +1,24 @@
+app.component("Icecream", {
+  props: {
+    cart: {
+      type: Array,
+      required: true,
+    },
+  },
+
+  template: /* html*/ `
+   <div>
+        <div class="icecream vue" id="icecream">
+            <p class="cone"></p>
+            <!-- <p>Please start adding scoops</p> -->
+            <div
+            class="scoop"
+            v-for="cartItem in cart"
+            :key="cartItem.id"
+            :class="cartItem.name.toLowerCase()"
+            ></div>
+            <div class="cherry" v-if="cart.length > 0"></div>
+            <div class="question" v-else></div>
+        </div>
+    </div>`,
+});
