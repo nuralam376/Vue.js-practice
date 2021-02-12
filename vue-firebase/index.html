@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue.js</title>
+
+    <style>
+      .box
+      {
+        width : 400px;
+        height : 200px;
+        background-color: #ddd;
+        text-align: center;
+        margin:20px;
+        display: inline-block;
+        padding : 100px 0;  
+      }
+    </style>
   </head>
   <body>
     <div id="app">
@@ -15,11 +28,18 @@
         <button v-on:click="age--">Decrease Age</button>
         <button @click="changeTitle('Another Book')">Change Title</button>
       </div>
+      <br>
         <button @click="handleBooks">
           <span v-if="showBooks">Hide Books</span>
           <span v-if="!showBooks">Show Books</span>
         </button>
+        <br>
+        <div class="box" @mouseenter="handleEvent($event,5)">Mouse Enter</div>
+        <div class="box" v-on:mouseleave = "handleEvent">Mouse Leave</div>
+        <div class="box" @dblclick = "handleEvent">Double Click</div>
+        <div class="box" @mousemove = "handleMouseMove">Position - {{x}} {{y}}</div>
       </div>
+       
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./app.js"></script>
