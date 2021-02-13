@@ -17,6 +17,15 @@
         display: inline-block;
         padding : 100px 0;  
       }
+      img
+      {
+        width : 100px;
+        height: 50px;
+      }
+      .fav
+      {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -33,6 +42,11 @@
           <span v-if="showBooks">Hide Books</span>
           <span v-if="!showBooks">Show Books</span>
         </button>
+        <br>
+        <div>
+          <p  v-for = "book in filteredBooks" @click = "toggleImage(book)">{{book.title}} - {{book.author}} <img v-bind:class = "{fav : book.fav}":src="book.img" :alt="book.title"></p>
+          <a :href="url" target = "_blank">Google</a>
+        </div>
         <br>
         <div class="box" @mouseenter="handleEvent($event,5)">Mouse Enter</div>
         <div class="box" v-on:mouseleave = "handleEvent">Mouse Leave</div>
