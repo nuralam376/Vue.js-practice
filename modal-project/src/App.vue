@@ -4,7 +4,7 @@
     <br />
     <input type="text" ref="name" />
     <button @click="handleClick">Click</button>
-    <Modal />
+    <Modal :header="header" :text="text" theme="sale" />
   </div>
 </template>
 
@@ -18,6 +18,8 @@ export default {
   data() {
     return {
       title: "First Vue App",
+      header: "Modal Header",
+      text: "Modal Text",
     };
   },
   methods: {
