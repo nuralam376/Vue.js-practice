@@ -4,7 +4,15 @@
     <br />
     <input type="text" ref="name" />
     <button @click="handleClick">Click</button>
-    <Modal :header="header" :text="text" theme="sale" />
+    <Modal theme="sale" v-if="showModal" @close="handleShowModal">
+      <template v-slot:links>
+        <a href="#">Sign up</a>
+        <a href="#">Login</a>
+      </template>
+      <h1>Modal Header</h1>
+      <p>Modal Content</p>
+    </Modal>
+    <button @click="handleShowModal">Show Modal</button>
   </div>
 </template>
 
@@ -20,12 +28,17 @@ export default {
       title: "First Vue App",
       header: "Modal Header",
       text: "Modal Text",
+      showModal: false,
     };
   },
   methods: {
     handleClick() {
       this.$refs.name.focus();
       this.$refs.name.classList.add("active");
+    },
+
+    handleShowModal() {
+      this.showModal = !this.showModal;
     },
   },
 };
