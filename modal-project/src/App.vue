@@ -4,15 +4,25 @@
     <br />
     <input type="text" ref="name" />
     <button @click="handleClick">Click</button>
-    <Modal theme="sale" v-if="showModal" @close="handleShowModal">
-      <template v-slot:links>
-        <a href="#">Sign up</a>
-        <a href="#">Login</a>
-      </template>
-      <h1>Modal Header</h1>
-      <p>Modal Content</p>
-    </Modal>
+    <div v-if="showModal">
+      <Modal theme="sale" @close="handleShowModal">
+        <template v-slot:links>
+          <a href="#">Sign up</a>
+          <a href="#">Login</a>
+        </template>
+        <h1>Modal Header</h1>
+        <p>Modal Content</p>
+      </Modal>
+    </div>
+
+    <div v-if="showModalTwo">
+      <Modal @close="handleShowModalTwo">
+        <h1>Modal Header</h1>
+        <p>Modal Content</p>
+      </Modal>
+    </div>
     <button @click="handleShowModal">Show Modal</button>
+    <button @click.alt="handleShowModalTwo">Show Modal (Alt)</button>
   </div>
 </template>
 
@@ -29,6 +39,7 @@ export default {
       header: "Modal Header",
       text: "Modal Text",
       showModal: false,
+      showModalTwo: false,
     };
   },
   methods: {
@@ -40,12 +51,17 @@ export default {
     handleShowModal() {
       this.showModal = !this.showModal;
     },
+
+    handleShowModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
+    },
   },
 };
 </script>
 
 <style>
-#app {
+#app,
+.modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

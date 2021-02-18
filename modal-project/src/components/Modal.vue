@@ -1,12 +1,18 @@
 <template>
   <div class="backdrop" @click.self="closeModal">
-    <div class="modal" :class="{ sale: theme === 'sale' }">
+    <teleport to=".modals" class="modal" :class="{ sale: theme === 'sale' }">
       <slot></slot>
       <div class="links">
         <slot name="links"></slot>
       </div>
-    </div>
+    </teleport>
   </div>
+
+  <teleport to=".modals" class="backdrop" @click.self="closeModal">
+    <div class="modal" :class="{ sale: theme === 'sale' }">
+      <h1>{{ header }}</h1>
+    </div>
+  </teleport>
 </template>
 
 <script>
@@ -15,6 +21,10 @@ export default {
 
   methods: {
     closeModal() {
+      this.$emit("close");
+    },
+
+    closeModalTwo() {
       this.$emit("close");
     },
   },
@@ -29,14 +39,14 @@ export default {
   width: 100%;
   height: 100%;
 }
-.modal {
+.modals.modal {
   width: 400px;
   padding: 20px;
   margin: 120px auto;
   background: white;
   border-radius: 10px;
 }
-.modal h1,
+.modals.modal h1,
 p {
   color: green;
   border: none;
