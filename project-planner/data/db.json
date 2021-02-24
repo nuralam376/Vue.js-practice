@@ -1,16 +1,22 @@
 {
   "projects": [
     {
-      "id": 1,
-      "title": "Create new homepage banner",
-      "details": "Lorem Ipsum",
-      "complete": false
+      "title": "Project 1",
+      "details": "Project 1 details",
+      "complete": false,
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Make marketing email",
-      "details": "Dolor sit",
-      "complete": false
+      "title": "Project 2",
+      "details": "Project 2 details",
+      "complete": false,
+      "id": 2
+    },
+    {
+      "title": "Project 3",
+      "details": "project 3 details",
+      "complete": false,
+      "id": 3
     }
   ]
 }
