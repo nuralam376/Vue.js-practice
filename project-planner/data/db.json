@@ -9,7 +9,7 @@
     {
       "title": "Project 3 Updated",
       "details": "Project 3 details",
-      "complete": false,
+      "complete": true,
       "id": 3
     }
   ]
