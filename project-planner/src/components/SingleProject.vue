@@ -4,8 +4,11 @@
       <h3 @click="showDetails = !showDetails">
         {{ project.title }}
       </h3>
+
       <div class="icons">
-        <div class="material-icons">edit</div>
+        <router-link :to="{ name: 'EditProject', params: { id: project.id } }">
+          <div class="material-icons">edit</div>
+        </router-link>
         <div class="material-icons" @click="deleteProject">delete</div>
         <div
           class="material-icons"
@@ -16,6 +19,7 @@
         </div>
       </div>
     </div>
+    <div v-if="showDetails">{{ project.details }}</div>
   </div>
 </template>
 
