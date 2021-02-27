@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "New Blog",
+      "body": "Lorem Ipsum dolor sit amet consectetur",
+      "tags": ["webdev", "coding", "news"]
+    },
+    {
+      "id": 2,
+      "title": "Blog 2",
+      "body": "Consectetur amet lorem ispums dolor si",
+      "tags": ["css", "webdev", "coding"]
+    }
+  ]
+}

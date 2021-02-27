@@ -1,6 +1,9 @@
 <template>
   <h1>{{ post.title }}</h1>
   <p>{{ snippet }}</p>
+  <ul>
+    <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
+  </ul>
 </template>
 
 <script>
