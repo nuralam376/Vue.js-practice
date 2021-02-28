@@ -4,13 +4,31 @@
       "id": 1,
       "title": "New Blog",
       "body": "Lorem Ipsum dolor sit amet consectetur",
-      "tags": ["webdev", "coding", "news"]
+      "tags": [
+        "webdev",
+        "coding",
+        "news"
+      ]
     },
     {
       "id": 2,
       "title": "Blog 2",
       "body": "Consectetur amet lorem ispums dolor si",
-      "tags": ["css", "webdev", "coding"]
+      "tags": [
+        "css",
+        "webdev",
+        "coding"
+      ]
+    },
+    {
+      "title": "New Title",
+      "body": "New body",
+      "tags": [
+        "html",
+        "css",
+        "js"
+      ],
+      "id": 3
     }
   ]
 }
