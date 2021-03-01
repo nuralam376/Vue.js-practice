@@ -15,12 +15,16 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
 export default {
   setup() {
     const title = ref(null);
     const body = ref(null);
     const tags = ref([]);
     const tag = ref(null);
+    const router = useRouter();
+    console.log("rourer", router);
 
     const handleKeyDown = () => {
       if (!tags.value.includes(tag.value)) {
@@ -42,6 +46,8 @@ export default {
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(post),
       });
+
+      router.push({ name: "Home" });
     };
 
     return { title, body, tags, handleKeyDown, tag, handleSubmit };
@@ -63,7 +69,7 @@ textarea {
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
-  border: 1px solid #eee;
+  border: 1px solid rgb(90, 83, 83);
   margin-bottom: 10px;
 }
 
@@ -77,5 +83,7 @@ label {
   position: relative;
   font-size: 20px;
   color: white;
+  background: brown;
+  padding: 10px;
 }
 </style>

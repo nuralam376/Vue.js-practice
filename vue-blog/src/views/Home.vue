@@ -19,7 +19,7 @@ export default {
 
   setup() {
     const { posts, errors, load } = getPosts();
-    console.log("posts", posts);
+
     load();
 
     return { posts, errors, load };
