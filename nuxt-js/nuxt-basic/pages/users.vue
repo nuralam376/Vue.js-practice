@@ -1,12 +1,14 @@
 <template>
   <div>
-    Users Section
+    <Header />
     <nuxt-child />
   </div>
 </template>
 
 <script>
+import Header from "@/components/Header.vue";
 export default {
-  layout: "users"
+  // layout: "users"
+  components: [Header]
 };
 </script>
