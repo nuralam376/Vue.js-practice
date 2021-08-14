@@ -3,14 +3,77 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
 <script>
 import PostList from "@/components/Posts/PostList";
 export default {
-  components: { PostList }
+  components: { PostList },
+
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: [
+          {
+            id: "1",
+            thumbnail:
+              "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+            title: "Vue.js",
+            previewText: "JavaScript Library"
+          },
+          {
+            id: "2",
+            thumbnail:
+              "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+            title: "Nuxt.js",
+            previewText: "Vue.js framework"
+          },
+          {
+            id: "3",
+            thumbnail:
+              "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+            title: "React.js",
+            previewText: "JavaScript Library"
+          }
+        ]
+      });
+    }, 1500);
+  }
+  // data() {
+  //   return {
+  //     loadedPosts: []
+  //   };
+  // },
+
+  // created() {
+  //   setTimeout(() => {
+  //     this.loadedPosts = [
+  //       {
+  //         id: "1",
+  //         thumbnail:
+  //           "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+  //         title: "Vue.js",
+  //         previewText: "JavaScript Library"
+  //       },
+  //       {
+  //         id: "2",
+  //         thumbnail:
+  //           "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+  //         title: "Nuxt.js",
+  //         previewText: "Vue.js framework"
+  //       },
+  //       {
+  //         id: "3",
+  //         thumbnail:
+  //           "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+  //         title: "React.js",
+  //         previewText: "JavaScript Library"
+  //       }
+  //     ];
+  //   }, 1500);
+  // }
 };
 </script>
 
