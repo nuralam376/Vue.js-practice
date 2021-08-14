@@ -3,50 +3,69 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
+    <section>
+      <button @click="submitPost">Save Post to Firebase</button>
+    </section>
     <PostList :posts="loadedPosts" />
   </div>
 </template>
 
 <script>
 import PostList from "@/components/Posts/PostList";
+import axios from "axios";
 export default {
   components: { PostList },
 
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: [
-          {
-            id: "1",
-            thumbnail:
-              "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
-            title: "Vue.js",
-            previewText: "JavaScript Library"
-          },
-          {
-            id: "2",
-            thumbnail:
-              "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
-            title: "Nuxt.js",
-            previewText: "Vue.js framework"
-          },
-          {
-            id: "3",
-            thumbnail:
-              "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
-            title: "React.js",
-            previewText: "JavaScript Library"
-          }
-        ]
-      });
-    }, 1500);
-  }
-  // data() {
-  //   return {
-  //     loadedPosts: []
-  //   };
+  // asyncData(context, callback) {
+  //   setTimeout(() => {
+  //     callback(null, {
+  //       loadedPosts: [
+  //         {
+  //           id: "1",
+  //           thumbnail:
+  //             "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+  //           title: "Vue.js",
+  //           previewText: "JavaScript Library"
+  //         },
+  //         {
+  //           id: "2",
+  //           thumbnail:
+  //             "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+  //           title: "Nuxt.js",
+  //           previewText: "Vue.js framework"
+  //         },
+  //         {
+  //           id: "3",
+  //           thumbnail:
+  //             "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+  //           title: "React.js",
+  //           previewText: "JavaScript Library"
+  //         }
+  //       ]
+  //     });
+  //   }, 1500);
   // },
+  methods: {
+    async submitPost() {
+      await axios.post(
+        "https://nuxt-blog-5b260-default-rtdb.firebaseio.com/posts.json",
 
+        {
+          id: "3",
+          thumbnail:
+            "https://www.phocuswire.com/uploadedImages/Articles/News/2020/July/human%20tech%20hybrid.jpeg",
+          title: "Angular.js",
+          previewText: "JavaScript Framework"
+        }
+      );
+    }
+  },
+
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
+    }
+  }
   // created() {
   //   setTimeout(() => {
   //     this.loadedPosts = [
@@ -73,7 +92,7 @@ export default {
   //       }
   //     ];
   //   }, 1500);
-  // }
+  // },
 };
 </script>
 
