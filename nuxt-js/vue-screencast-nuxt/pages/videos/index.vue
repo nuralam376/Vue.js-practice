@@ -4,7 +4,7 @@
         <ul>
             <li v-for = "video in videos" :key = "video.id">
                 <nuxt-link :to = "`/videos/${video.id}`">
-                    {{video.name}}
+                    {{video.title}}
                 </nuxt-link>
             </li>
         </ul>
@@ -14,5 +14,9 @@
 <script>
     export default {
         props : ["videos"],
+
+        head: {
+            title : "Video Post"
+        }
     }
 </script>

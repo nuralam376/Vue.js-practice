@@ -2,7 +2,7 @@
     <div>
 
         <h1>Video id - {{$route.params.id}}</h1>
-        <p>{{this.video.name}}</p>
+        <p>{{this.video.title}}</p>
         <nuxt-link :to = "`/videos/${video.id}/edit/`">
             <button>Edit</button>
         </nuxt-link>

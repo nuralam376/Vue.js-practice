@@ -1,21 +1,21 @@
 <template>
-    <nuxt-child :video = "video"></nuxt-child>
+    <nuxt-child :video = "$store.state.video"></nuxt-child>
 </template>
 
 <script>
 
 export default ({
     props : ['videos'],
+    head : {
+        title : "Post Details"
+    },
 
-    computed : 
-        {
-            video()
-            {
+    async asyncData({$axios,params, store})
+    {
+        const res = await $axios.get("/posts/" + params.id);
 
-                const res = this.videos.find(vd => vd.id == this.$route.params.id);
-               
-                return res;
-            }
-        },
+        store.commit("SET_VIDEO",res.data);
+
+    }
 })
 </script>

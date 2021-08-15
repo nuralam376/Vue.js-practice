@@ -1,7 +1,6 @@
 <template>
     <div>
-     <h1>Videos</h1>
-     <nuxt-child :videos = "videos"/>
+     <nuxt-child :videos = "$store.state.videos"/>
     </div>
 </template>
 
@@ -24,6 +23,15 @@
                     }
                 ]
             };
+        },
+
+        async fetch(context)
+        {
+           const res = await context.$axios.get('/posts');
+
+            context.store.commit("SET_VIDEOS",res.data);
         }
+
+        
     }
 </script>
