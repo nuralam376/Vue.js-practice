@@ -7,6 +7,9 @@
 <script>
 export default {
     name : "Greet",
+    data() {
+        return {};
+    },
     props : {
         name : {
             type : String,
@@ -21,7 +24,7 @@ export default {
             type : Boolean,
         },
     },
-    inheritAttrs : false
+    inheritAttrs : false,
 }
 </script>
 
